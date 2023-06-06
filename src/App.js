@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Post from "./component/Post";
+import Notice from "./component/Notice";
+import MainHeader from "./MainHeader";
+import Page1 from "./component/Page1";
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MainHeader />
+      <h1>일석삼조 게시판</h1>
+      <Routes>
+        <Route path="/post" element={<Post />} />
+        <Route path="/notice" element={<Notice />} />
+        <Route path="/page1" element={<Page1 />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;

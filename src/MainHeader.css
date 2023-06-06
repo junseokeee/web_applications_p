@@ -1,0 +1,9 @@
+.main {
+  border-right: 1px solid black;
+  position: fixed;
+  width: 110px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+}
