@@ -1,9 +1,33 @@
 import React, { Component } from "react";
 import "./page.css";
-export default class Page1 extends Component {
+
+export default class page2 extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      comment: "",
+      commentsList: [],
+    };
+  }
+
+  handleInputChange = (event) => {
+    this.setState({ comment: event.target.value });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const updatedComment = this.state.comment;
+    this.setState((prevState) => ({
+      comment: "",
+      commentsList: [...prevState.commentsList, updatedComment],
+    }));
+  };
+
   render() {
+    const { comment, commentsList } = this.state;
+
     return (
-      <div>
+      <div className="container">
         <h2>온라인 음악 스트리밍 앱 개발</h2>
         <p>
           ### 역할 및 책임 - 프론트엔드 개발자로써 React를 사용하여 사용자
@@ -19,13 +43,19 @@ export default class Page1 extends Component {
           <br /> - 팀원들과의 협업을 통해 원활한 코드 작성 및 프로젝트 진행을
           이끌어냈습니다.
         </p>
-        <p></p>
-        <form className="form-container">
+        <div>
+          {commentsList.map((comment, index) => (
+            <p key={index}>{comment}</p>
+          ))}
+        </div>
+        <form onSubmit={this.handleSubmit} className="form-container">
           <span>
             <input
               type="text"
               className="text"
-              placeholder="댓글을 입력해주세요"
+              placeholder="댓글을 입력하세요"
+              value={comment}
+              onChange={this.handleInputChange}
             />
           </span>
           <input type="submit" className="submit" value="입력" />
@@ -34,4 +64,3 @@ export default class Page1 extends Component {
     );
   }
 }
-// https://velog.io/@ash991213/React-%EB%8C%93%EA%B8%80-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0

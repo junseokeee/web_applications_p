@@ -21,16 +21,11 @@ class Post extends Component {
       <div>
         <h3>글관리</h3>
         <div className="tabs">
-          <button
-            type="button"
-            className={activeTab === "myPosts" ? "active" : ""}
-            onClick={() => this.handleTabChange("myPosts")}
-          >
+          <button type="button" onClick={() => this.handleTabChange("myPosts")}>
             내가 작성한 글
           </button>
           <button
             type="button"
-            className={activeTab === "interestedPosts" ? "active" : ""}
             onClick={() => this.handleTabChange("interestedPosts")}
           >
             관심 글
@@ -41,9 +36,11 @@ class Post extends Component {
           {activeTab === "myPosts" && (
             <div>
               <ol>
-                <Link to="/page1">내가 작성한 글 1</Link>
+                <Link to="/page1">온라인 음악 스트리밍 앱 개발</Link>
               </ol>
-              <ol>내가 작성한 글 2</ol>
+              <ol>
+                <Link to="/page2">온라인 음악 스트리밍 앱 개발</Link>
+              </ol>
               <ol>내가 작성한 글 3</ol>
               <ol>내가 작성한 글 4</ol>
               <ol>내가 작성한 글 5</ol>

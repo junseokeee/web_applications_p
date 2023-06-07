@@ -20,23 +20,17 @@ class Notice extends Component {
       <div>
         <h3>알림</h3>
         <div className="tabs">
-          <button
-            type="button"
-            className={activeTab === "myPosts" ? "active" : ""}
-            onClick={() => this.handleTabChange("myPosts")}
-          >
+          <button type="button" onClick={() => this.handleTabChange("myPosts")}>
             받은 쪽지
           </button>
           <button
             type="button"
-            className={activeTab === "interestedPosts" ? "active" : ""}
             onClick={() => this.handleTabChange("interestedPosts")}
           >
             보낸 쪽지
           </button>
           <button
             type="button"
-            className={activeTab === "allPosts" ? "active" : ""}
             onClick={() => this.handleTabChange("allPosts")}
           >
             공지사항
