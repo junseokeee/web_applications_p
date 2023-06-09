@@ -86,9 +86,7 @@ class Notice extends Component {
         </div>
         {selectedMessage && (
           <div className="content">
-            <p onClick={() => this.handleMessageClick(selectedMessage)}>
-              {selectedMessage}
-            </p>
+            <p>{selectedMessage}</p>
           </div>
         )}
       </div>
