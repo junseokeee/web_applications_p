@@ -5,65 +5,88 @@ class Notice extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeTab: "myPosts",
+      activeTab: "mynotes",
+      selectedMessage: null,
     };
   }
 
   handleTabChange = (tab) => {
-    this.setState({ activeTab: tab });
+    this.setState({ activeTab: tab, selectedMessage: "" });
+  };
+
+  handleMessageClick = (message) => {
+    this.setState({ selectedMessage: message });
   };
 
   render() {
-    const { activeTab } = this.state;
+    const { activeTab, selectedMessage } = this.state;
 
     return (
       <div>
         <h3>알림</h3>
         <div className="tabs">
-          <button type="button" onClick={() => this.handleTabChange("myPosts")}>
+          <button type="button" onClick={() => this.handleTabChange("mynotes")}>
             받은 쪽지
           </button>
           <button
             type="button"
-            onClick={() => this.handleTabChange("interestedPosts")}
+            onClick={() => this.handleTabChange("yournotes")}
           >
             보낸 쪽지
           </button>
-          <button
-            type="button"
-            onClick={() => this.handleTabChange("allPosts")}
-          >
+          <button type="button" onClick={() => this.handleTabChange("notice")}>
             공지사항
           </button>
         </div>
 
         <div className="content">
-          {activeTab === "myPosts" && (
+          {activeTab === "mynotes" && (
             <div>
-              <ol>받은 쪽지 1</ol>
-              <ol>받은 쪽지 2</ol>
-              <ol>받은 쪽지 3</ol>
+              <ol onClick={() => this.handleMessageClick("받은 쪽지 1")}>
+                받은 쪽지 1
+              </ol>
+              <ol onClick={() => this.handleMessageClick("받은 쪽지 2")}>
+                받은 쪽지 2
+              </ol>
+              <ol onClick={() => this.handleMessageClick("받은 쪽지 3")}>
+                받은 쪽지 3
+              </ol>
             </div>
           )}
 
-          {activeTab === "interestedPosts" && (
+          {activeTab === "yournotes" && (
             <div>
-              <ol>보낸 쪽지 1</ol>
-              <ol>보낸 쪽지 2</ol>
-              <ol>보낸 쪽지 3</ol>
-              <ol>보낸 쪽지 4</ol>
+              <ol onClick={() => this.handleMessageClick("보낸 쪽지 1")}>
+                보낸 쪽지 1
+              </ol>
+              <ol onClick={() => this.handleMessageClick("보낸 쪽지 2")}>
+                보낸 쪽지 2
+              </ol>
+              <ol onClick={() => this.handleMessageClick("보낸 쪽지 3")}>
+                보낸 쪽지 3
+              </ol>
             </div>
           )}
 
-          {activeTab === "allPosts" && (
+          {activeTab === "notice" && (
             <div>
-              <ol>공지사항 1</ol>
-              <ol>공지사항 2</ol>
-              <ol>공지사항 3</ol>
-              <ol>공지사항 4</ol>
+              <ol onClick={() => this.handleMessageClick("공지사항 1")}>
+                공지사항 1
+              </ol>
+              <ol onClick={() => this.handleMessageClick("공지사항 2")}>
+                공지사항 2
+              </ol>
+              <ol onClick={() => this.handleMessageClick("공지사항 3")}>
+                공지사항 3
+              </ol>
             </div>
           )}
         </div>
+        {selectedMessage && (
+          <div className="content">
+            <p>{selectedMessage}</p>
+          </div>
+        )}
       </div>
     );
   }
