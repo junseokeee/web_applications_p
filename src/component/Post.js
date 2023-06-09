@@ -1,21 +1,26 @@
 import React, { Component } from "react";
 import "./Post.css";
-import { Link } from "react-router-dom";
 
 class Post extends Component {
   constructor(props) {
     super(props);
     this.state = {
       activeTab: "myPosts",
+      selectedMessage: null,
     };
   }
 
   handleTabChange = (tab) => {
-    this.setState({ activeTab: tab });
+    this.setState({ activeTab: tab, selectedMessage: null });
+  };
+  handleMessageClick = (message) => {
+    this.setState((prev) => ({
+      selectedMessage: prev.selectedMessage === message ? null : message,
+    }));
   };
 
   render() {
-    const { activeTab } = this.state;
+    const { activeTab, selectedMessage } = this.state;
 
     return (
       <div>
@@ -35,27 +40,31 @@ class Post extends Component {
         <div className="content">
           {activeTab === "myPosts" && (
             <div>
-              <ol>
-                <Link to="/page1">온라인 음악 스트리밍 앱 개발</Link>
-              </ol>
-              <ol>
-                <Link to="/page2">온라인 음악 스트리밍 앱 개발</Link>
-              </ol>
+              <ol>내가 작성한 글 1</ol>
+              <ol>내가 작성한 글 2</ol>
               <ol>내가 작성한 글 3</ol>
-              <ol>내가 작성한 글 4</ol>
-              <ol>내가 작성한 글 5</ol>
             </div>
           )}
 
           {activeTab === "interestedPosts" && (
             <div>
-              <ol>관심글 1</ol>
-              <ol>관심글 2</ol>
-              <ol>관심글 3</ol>
-              <ol>관심글 4</ol>
+              <ol onClick={() => this.handleMessageClick("관심 글 1")}>
+                관심글 1
+              </ol>
+              <ol onClick={() => this.handleMessageClick("관심 글 2")}>
+                관심글 2
+              </ol>
+              <ol onClick={() => this.handleMessageClick("관심 글 3")}>
+                관심글 3
+              </ol>
             </div>
           )}
         </div>
+        {selectedMessage && (
+          <div className="content">
+            <p>{selectedMessage}</p>
+          </div>
+        )}
       </div>
     );
   }
