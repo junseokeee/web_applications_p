@@ -38,13 +38,7 @@ class Post extends Component {
         </div>
 
         <div className="content">
-          {activeTab === "myPosts" && (
-            <div>
-              <ol>내가 작성한 글 1</ol>
-              <ol>내가 작성한 글 2</ol>
-              <ol>내가 작성한 글 3</ol>
-            </div>
-          )}
+          {activeTab === "myPosts" && <div>글 쓰기에 입력 된 내용 출력</div>}
 
           {activeTab === "interestedPosts" && (
             <div>
