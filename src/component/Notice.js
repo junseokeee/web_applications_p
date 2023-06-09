@@ -11,11 +11,13 @@ class Notice extends Component {
   }
 
   handleTabChange = (tab) => {
-    this.setState({ activeTab: tab, selectedMessage: "" });
+    this.setState({ activeTab: tab, selectedMessage: null });
   };
 
   handleMessageClick = (message) => {
-    this.setState({ selectedMessage: message });
+    this.setState((prev) => ({
+      selectedMessage: prev.selectedMessage === message ? null : message,
+    }));
   };
 
   render() {
@@ -84,7 +86,9 @@ class Notice extends Component {
         </div>
         {selectedMessage && (
           <div className="content">
-            <p>{selectedMessage}</p>
+            <p onClick={() => this.handleMessageClick(selectedMessage)}>
+              {selectedMessage}
+            </p>
           </div>
         )}
       </div>
