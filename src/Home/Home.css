@@ -1,0 +1,40 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+hr {
+  padding: 0;
+  margin: 0;
+}
+ul,
+li {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+
+.container > .content {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+.container > .content > nav {
+  flex-basis: 250px;
+  flex-shrink: 0;
+  margin: 10px 5px 10px 10px;
+}
+.container > .content > main {
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin: 10px 5px 10px 5px;
+}
+.container > .content > .aside {
+  flex-basis: 230px;
+  flex-shrink: 0;
+  margin: 10px 10px 10px 5px;
+}
+.profile > div {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}

@@ -1,0 +1,12 @@
+.tabs {
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  text-align: left;
+  margin-left: 250px;
+}
+
+.postcontent {
+  margin-right: 50px;
+  border: 1px solid black;
+  text-align: left;
+}

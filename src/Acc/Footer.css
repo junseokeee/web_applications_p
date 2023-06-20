@@ -1,0 +1,24 @@
+.footerContainer {
+  background-color: #000033;
+}
+.footerContents {
+  width: 100%;
+  height: 150px;
+  padding-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footerMenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footerMenuItem {
+  color: gray;
+  padding: 5px 0 5px 0;
+}
+.footerMenuItem > a:hover {
+  color: #69b1ff;
+}
