@@ -1,3 +1,16 @@
+## 포트폴리오 구인구직 사이트
+<img width="1470" alt="스크린샷 2023-07-13 오후 6 28 03" src="https://github.com/junseokeee/web_applications_p/assets/88473134/d80ed82a-3b92-458a-98e0-3ed4b7e790e5">
+
+## 기능
+ - 회원가입 및 로그인
+ - 게시글 작성 및 삭제
+ - 게시글 관심글 및 관심글 해제
+ - 댓글 기능
+ - 마이페이지 내 정보 수정
+ - 프로필 사진 추가
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
